@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('point_id')->nullable()->constrained('distribution_points');
-            $table->enum('type', ['point','tanker']);
             $table->boolean('emergency')->default(false);
             $table->integer('quantity');
             $table->string('status')->default('pending');

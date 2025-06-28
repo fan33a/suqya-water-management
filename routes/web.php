@@ -66,6 +66,13 @@ Route::middleware(['auth', 'checkrole:org_owner', 'institution.access'])->group(
 
 Route::middleware(['auth', 'checkrole:representative'])->group(function () {
     Route::get('/delegate/dashboard', [App\Http\Controllers\DelegateController::class, 'dashboard'])->name('delegate.dashboard');
+    
+    // Water Requests Management
+    Route::get('/delegate/water-requests', [App\Http\Controllers\WaterRequestController::class, 'index'])->name('delegate.water-requests');
+    Route::get('/delegate/water-requests/create', [App\Http\Controllers\WaterRequestController::class, 'create'])->name('delegate.water-requests.create');
+    Route::post('/delegate/water-requests', [App\Http\Controllers\WaterRequestController::class, 'store'])->name('delegate.water-requests.store');
+    Route::get('/delegate/water-requests/{waterRequest}', [App\Http\Controllers\WaterRequestController::class, 'show'])->name('delegate.water-requests.show');
+    Route::patch('/delegate/water-requests/{waterRequest}/status', [App\Http\Controllers\WaterRequestController::class, 'updateStatus'])->name('delegate.water-requests.update-status');
 });
 
 Route::middleware(['auth', 'checkrole:driver'])->group(function () {

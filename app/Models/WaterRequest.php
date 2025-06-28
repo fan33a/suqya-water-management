@@ -13,17 +13,24 @@ class WaterRequest extends Model
         'user_id',
         'representative_id',
         'point_id',
-        'type',
         'emergency',
         'quantity',
         'status',
         'scheduled_time',
         'current_location',
+        'location',
+        'latitude',
+        'longitude',
+        'scheduled_at',
+        'notes',
     ];
 
     protected $casts = [
         'emergency' => 'boolean',
         'scheduled_time' => 'datetime',
+        'scheduled_at' => 'datetime',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
     ];
 
     public function user()

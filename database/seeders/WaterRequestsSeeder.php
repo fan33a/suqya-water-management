@@ -14,58 +14,74 @@ class WaterRequestsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Get delegates
-        $delegate1 = User::where('email', 'ahmed.delegate1@institution1.com')->first();
-        $delegate2 = User::where('email', 'sara.delegate1@institution1.com')->first();
-        $delegate3 = User::where('email', 'mahmoud.delegate2@institution2.com')->first();
-
-        // Get institution owners as users
-        $user1 = User::where('email', 'ahmed@institution1.com')->first();
-        $user2 = User::where('email', 'fatima@institution2.com')->first();
-
-        if ($delegate1 && $user1) {
-            // Create water requests for delegate 1
-            for ($i = 1; $i <= 24; $i++) {
-                WaterRequest::create([
-                    'user_id' => $user1->id,
-                    'representative_id' => $delegate1->id,
-                    'type' => rand(0, 1) ? 'point' : 'tanker',
-                    'emergency' => rand(0, 1),
-                    'quantity' => rand(100, 1000),
-                    'status' => ['pending', 'approved', 'completed', 'cancelled'][rand(0, 3)],
-                    'scheduled_time' => now()->addDays(rand(1, 30)),
-                ]);
-            }
+        // Get a representative user
+        $representative = User::where('role', 'representative')->first();
+        
+        if (!$representative) {
+            // Create a representative if none exists
+            $representative = User::create([
+                'name' => 'أحمد المندوب',
+                'email' => 'delegate@example.com',
+                'password' => bcrypt('password'),
+                'role' => 'representative',
+                'institution_id' => 1,
+            ]);
         }
 
-        if ($delegate2 && $user1) {
-            // Create water requests for delegate 2
-            for ($i = 1; $i <= 10; $i++) {
-                WaterRequest::create([
-                    'user_id' => $user1->id,
-                    'representative_id' => $delegate2->id,
-                    'type' => rand(0, 1) ? 'point' : 'tanker',
-                    'emergency' => rand(0, 1),
-                    'quantity' => rand(100, 1000),
-                    'status' => ['pending', 'approved', 'completed', 'cancelled'][rand(0, 3)],
-                    'scheduled_time' => now()->addDays(rand(1, 30)),
-                ]);
-            }
-        }
+        // Create sample water requests
+        $requests = [
+            [
+                'user_id' => $representative->id,
+                'representative_id' => $representative->id,
+                'emergency' => false,
+                'quantity' => 3000,
+                'status' => 'pending',
+                'location' => 'شارع الملك فهد، حي النزهة، مبنى رقم 15، شقة 302',
+                'latitude' => 24.7136,
+                'longitude' => 46.6753,
+                'scheduled_at' => now()->addDays(1)->setTime(10, 0),
+                'notes' => 'يرجى الاتصال قبل الوصول، البوابة الأمامية مقفلة',
+            ],
+            [
+                'user_id' => $representative->id,
+                'representative_id' => $representative->id,
+                'emergency' => true,
+                'quantity' => 5000,
+                'status' => 'approved',
+                'location' => 'طريق الأمير محمد، حي الورود، فيلا رقم 8',
+                'latitude' => 24.7500,
+                'longitude' => 46.6500,
+                'scheduled_at' => now()->addHours(2),
+                'notes' => 'طلب عاجل - نفاد المياه تماماً',
+            ],
+            [
+                'user_id' => $representative->id,
+                'representative_id' => $representative->id,
+                'emergency' => false,
+                'quantity' => 2000,
+                'status' => 'completed',
+                'location' => 'شارع التحلية، حي الشاطئ، برج الأفق، الطابق 12',
+                'latitude' => 24.7800,
+                'longitude' => 46.6800,
+                'scheduled_at' => now()->subDays(1)->setTime(14, 30),
+                'notes' => 'التوصيل في المساء بعد الساعة 6',
+            ],
+            [
+                'user_id' => $representative->id,
+                'representative_id' => $representative->id,
+                'emergency' => false,
+                'quantity' => 4000,
+                'status' => 'rejected',
+                'location' => 'طريق الملك عبدالله، حي الملقا، مجمع سكني رقم 3',
+                'latitude' => 24.7200,
+                'longitude' => 46.6900,
+                'scheduled_at' => now()->addDays(2)->setTime(9, 0),
+                'notes' => 'المنطقة خارج نطاق التغطية',
+            ],
+        ];
 
-        if ($delegate3 && $user2) {
-            // Create water requests for delegate 3
-            for ($i = 1; $i <= 15; $i++) {
-                WaterRequest::create([
-                    'user_id' => $user2->id,
-                    'representative_id' => $delegate3->id,
-                    'type' => rand(0, 1) ? 'point' : 'tanker',
-                    'emergency' => rand(0, 1),
-                    'quantity' => rand(100, 1000),
-                    'status' => ['pending', 'approved', 'completed', 'cancelled'][rand(0, 3)],
-                    'scheduled_time' => now()->addDays(rand(1, 30)),
-                ]);
-            }
+        foreach ($requests as $requestData) {
+            WaterRequest::create($requestData);
         }
     }
-} 
+}
