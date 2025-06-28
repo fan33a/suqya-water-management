@@ -1,66 +1,192 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Suqya Water Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+نظام إدارة المياه "سقيا" - منصة شاملة لإدارة محطات المياه والشاحنات والسائقين مع نظام عزل المؤسسات
 
-## About Laravel
+## 🚰 نظرة عامة
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Suqya هو نظام إدارة متكامل مصمم خصيصاً لإدارة عمليات توزيع المياه. يوفر النظام إدارة شاملة للمحطات والشاحنات والسائقين مع نظام عزل بيانات متقدم يضمن خصوصية وأمان بيانات كل مؤسسة.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ المميزات الرئيسية
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🏢 إدارة المؤسسات
+- **نظام عزل البيانات**: كل مؤسسة ترى فقط بياناتها
+- **إدارة متعددة المستخدمين**: مالك المؤسسة، المندوبين، السائقين
+- **لوحة تحكم شاملة**: إحصائيات وإدارة مركزية
 
-## Learning Laravel
+### 🚛 إدارة الشاحنات
+- **إضافة وتعديل الشاحنات**: إدارة كاملة لأسطول الشاحنات
+- **تعيين السائقين**: ربط السائقين بالشاحنات
+- **تتبع الحالة**: نشط، غير نشط، صيانة
+- **إدارة الصيانة**: جدولة وتتبع الصيانة
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 👨‍💼 إدارة السائقين
+- **نظام السائقين المتاحين**: سائقين غير معينين لأي مؤسسة
+- **تعيين السائقين**: ربط السائقين بالمؤسسات
+- **إدارة الشاحنات**: تعيين الشاحنات للسائقين
+- **معلومات مفصلة**: بيانات الاتصال والمدينة
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🏪 إدارة المحطات
+- **إدارة المحطات**: إضافة وتعديل وحذف المحطات
+- **تتبع الحالة**: نشط، غير نشط، صيانة
+- **معلومات الاتصال**: شخص الاتصال ورقم الهاتف
+- **السعة والموقع**: تفاصيل شاملة لكل محطة
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👥 إدارة المندوبين
+- **إدارة المندوبين**: إضافة وتعديل وحذف المندوبين
+- **تفعيل/تعطيل**: إدارة حالة المندوبين
+- **تتبع النشاط**: آخر نشاط للمندوبين
+- **إحصائيات**: عدد المحطات والطلبات
 
-## Laravel Sponsors
+## 🛠️ التقنيات المستخدمة
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **Backend**: Laravel 10.x
+- **Frontend**: Blade Templates, CSS3, JavaScript
+- **Database**: MySQL
+- **Authentication**: Laravel Breeze
+- **Middleware**: Custom Role & Institution Access Control
 
-### Premium Partners
+## 📋 متطلبات النظام
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- PHP >= 8.1
+- Composer
+- MySQL >= 8.0
+- Node.js & NPM (للأصول الأمامية)
 
-## Contributing
+## 🚀 التثبيت والإعداد
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. استنساخ المشروع
+```bash
+git clone https://github.com/yourusername/suqya-2.git
+cd suqya-2
+```
 
-## Code of Conduct
+### 2. تثبيت التبعيات
+```bash
+composer install
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. إعداد البيئة
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 4. إعداد قاعدة البيانات
+```bash
+# تعديل ملف .env بمعلومات قاعدة البيانات
+php artisan migrate
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. تشغيل المشروع
+```bash
+php artisan serve
+npm run dev
+```
 
-## License
+## 🗄️ هيكل قاعدة البيانات
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### الجداول الرئيسية:
+- **users**: المستخدمين (مالك المؤسسة، المندوبين، السائقين)
+- **trucks**: الشاحنات
+- **stations**: محطات المياه
+- **water_requests**: طلبات المياه
+- **distribution_points**: نقاط التوزيع
+
+### العلاقات:
+- كل مؤسسة لها سائقين وشاحنات ومحطات خاصة بها
+- السائقين يمكن تعيينهم للشاحنات
+- المندوبين يديرون المحطات
+
+## 🔐 نظام الأمان
+
+### الأدوار والصلاحيات:
+- **org_owner**: مالك المؤسسة - صلاحيات كاملة
+- **representative**: المندوب - إدارة المحطات والطلبات
+- **driver**: السائق - عرض المهام المعينة
+
+### عزل المؤسسات:
+- كل مؤسسة ترى فقط بياناتها
+- middleware مخصص للتحكم في الوصول
+- فحص institution_id في جميع الاستعلامات
+
+## 📱 الواجهات الرئيسية
+
+### لوحة تحكم المؤسسة:
+- إحصائيات شاملة
+- إدارة السائقين والشاحنات
+- إدارة المحطات والمندوبين
+- التقارير والإعدادات
+
+### لوحة تحكم السائق:
+- عرض المهام المعينة
+- تحديث حالة المهام
+- معلومات الشاحنة
+
+### لوحة تحكم المندوب:
+- إدارة المحطات
+- متابعة الطلبات
+- التقارير
+
+## 🔧 الإعدادات المتقدمة
+
+### إعداد Middleware:
+```php
+// التحقق من دور المستخدم
+Route::middleware(['auth', 'checkrole:org_owner'])->group(function () {
+    // routes للمؤسسة
+});
+
+// التحقق من الوصول للمؤسسة
+Route::middleware(['auth', 'institution.access'])->group(function () {
+    // routes محمية
+});
+```
+
+### إضافة مؤسسة جديدة:
+```php
+// إنشاء مستخدم جديد مع role = 'org_owner'
+User::create([
+    'name' => 'اسم المؤسسة',
+    'email' => 'institution@example.com',
+    'password' => bcrypt('password'),
+    'role' => 'org_owner',
+    'institution_id' => null // سيصبح هو المؤسسة
+]);
+```
+
+## 📊 الإحصائيات والتقارير
+
+- عدد المحطات النشطة
+- عدد الشاحنات والسائقين
+- معدل الاستخدام
+- تقارير الأداء
+
+## 🤝 المساهمة
+
+نرحب بالمساهمات! يرجى اتباع الخطوات التالية:
+
+1. Fork المشروع
+2. إنشاء branch جديد (`git checkout -b feature/AmazingFeature`)
+3. Commit التغييرات (`git commit -m 'Add some AmazingFeature'`)
+4. Push إلى Branch (`git push origin feature/AmazingFeature`)
+5. فتح Pull Request
+
+## 📄 الرخصة
+
+هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
+
+## 📞 الدعم
+
+للدعم والاستفسارات:
+- 📧 البريد الإلكتروني: support@suqya.com
+- 🐛 الإبلاغ عن الأخطاء: [Issues](https://github.com/yourusername/suqya-2/issues)
+
+## 🙏 الشكر
+
+شكراً لجميع المساهمين والمطورين الذين ساعدوا في تطوير هذا النظام.
+
+---
+
+**Suqya Water Management System** - نظام إدارة المياه المتكامل 🚰✨
